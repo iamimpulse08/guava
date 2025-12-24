@@ -540,7 +540,10 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
         case 1:
           // requireNonNull is safe because the first `size` elements have been filled in.
           Entry<K, V> onlyEntry = requireNonNull(entries[0]);
-          return of(onlyEntry.getKey(), onlyEntry.getValue());
+          ImmutableMap<K, V> returnedMap = of(onlyEntry.getKey(), onlyEntry.getValue());
+
+          // TODO Implement Size // Entry Removal.
+          return returnedMap;
         default:
           break;
       }
